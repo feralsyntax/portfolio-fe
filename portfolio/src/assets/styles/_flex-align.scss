@@ -1,0 +1,15 @@
+$alignments: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+);
+
+@each $name, $value in $alignments {
+  .al-#{$name} {
+    align-items: $value;
+  }
+
+  .jus-#{$name} {
+    justify-content: $value;
+  }
+}
