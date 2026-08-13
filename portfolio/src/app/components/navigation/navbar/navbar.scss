@@ -1,4 +1,6 @@
 @use '../../../../assets/styles/colors' as *;
+@use '../../../../assets/styles/d-flex' as d-flex;
+
 
 .navbar {
   position: fixed;
@@ -12,9 +14,7 @@
   transition: all 300ms ease-in-out;
 
   &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include d-flex.flex($justify: space-between, $align: center);
     width: 100%;
     max-width: 1280px;
     height: 4rem;
@@ -27,9 +27,7 @@
   }
 
   &__brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    @include d-flex.flex($align: center, $gap: 0.5rem);
 
     color: $color-text;
     font-family: 'Space Grotesk', sans-serif;
