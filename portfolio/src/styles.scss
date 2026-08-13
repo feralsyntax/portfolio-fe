@@ -1,0 +1,23 @@
+@use './assets/styles/base';
+@use './assets/styles/colors';
+@use './assets/styles/d-flex';
+@use './assets/styles/flex-align';
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  cursor: pointer !important;
+}
+
+.text-center {
+  text-align: center;
+}
