@@ -1,0 +1,59 @@
+@use '../../../../assets/styles/colors' as *;
+@use '../../../../assets/styles/d-flex' as d-flex;
+
+.footer {
+  width: 100%;
+  margin-top: auto;
+  padding-block: 2rem;
+
+  background-color: $color-surface-container-lowest;
+  border-top: 1px solid $color-outline-variant;
+}
+
+.footer__container {
+  @include d-flex.flex-col($align: center, $justify: space-between, $gap: 1rem);
+
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 16px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding-inline: 64px;
+  }
+}
+
+.footer__copyright {
+  color: $color-text-muted;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.footer__links {
+  display: flex;
+  gap: 1.5rem;
+
+  a {
+    color: $color-text-muted;
+    text-decoration: none;
+
+    transition:
+      color 300ms,
+      transform 300ms;
+
+    &:hover {
+      color: $color-tertiary;
+      transform: scale(1.05);
+    }
+  }
+
+  span {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}

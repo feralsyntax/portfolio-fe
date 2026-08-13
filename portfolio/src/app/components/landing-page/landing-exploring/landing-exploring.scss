@@ -1,0 +1,103 @@
+@use '../../../../assets/styles/colors' as *;
+@use '../../../../assets/styles/d-flex' as d-flex;
+
+.exploring {
+  width: 100%;
+}
+
+.exploring__banner {
+  position: relative;
+
+  @include d-flex.flex-col($align: center, $justify: space-between, $gap: 1rem);
+
+  overflow: hidden;
+
+  padding: 1rem;
+
+  border: 1px solid $color-border;
+  border-radius: 0.5rem;
+
+  background-color: $color-elevated-baobab;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+
+  &:hover {
+    .exploring__overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.exploring__overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(to right, rgba(169, 112, 255, 0.1), transparent);
+
+  opacity: 0;
+
+  transition: opacity 500ms;
+}
+
+.exploring__label {
+  position: relative;
+  z-index: 10;
+
+  @include d-flex.flex($align: center, $gap: 0.75rem);
+
+  .material-symbols-outlined {
+    color: $gradient-acacia-start;
+  }
+
+  span:last-child {
+    color: $color-text;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.exploring__content {
+  position: relative;
+  z-index: 10;
+
+  @include d-flex.flex($align: center, $gap: 0.5rem);
+
+  color: $color-text-lavender-stone;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+
+  text-align: center;
+
+  @media (min-width: 640px) {
+    text-align: left;
+  }
+}
+
+.exploring__arrow {
+  position: relative;
+  z-index: 10;
+
+  display: none;
+
+  color: $gradient-ultra-start;
+
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @media (min-width: 640px) {
+    display: flex;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
