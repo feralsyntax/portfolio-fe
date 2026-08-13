@@ -1,0 +1,118 @@
+@use '../../../../assets/styles/colors' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: rgba(12, 9, 18, 0.8);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition: all 300ms ease-in-out;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    height: 4rem;
+    margin-inline: auto;
+    padding-inline: 16px;
+
+    @media (min-width: 768px) {
+      padding-inline: 64px;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    color: $color-text;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  &__brand-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(to right, $gradient-ultra-start, $gradient-ultra-end);
+  }
+
+  &__links {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+
+    a {
+      color: $color-text-muted;
+      text-decoration: none;
+      transition:
+        color 300ms,
+        opacity 300ms;
+
+      &:hover {
+        color: $color-primary;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__connect {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    border: 0;
+    border-radius: 9999px;
+
+    background: linear-gradient(to right, $gradient-ultra-start, $gradient-ultra-end);
+
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 300ms;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(169, 112, 255, 0.3);
+    }
+  }
+
+  &__menu {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: $color-text;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
