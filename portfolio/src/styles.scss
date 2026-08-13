@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  cursor: pointer !important;
+}
+
+.text-center {
+  text-align: center;
+}
