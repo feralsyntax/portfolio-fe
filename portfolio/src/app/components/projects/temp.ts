@@ -13,6 +13,11 @@ export interface Technology {
   techs: string[];
 }
 
+export interface Industry {
+  name: string;
+  count: string;
+}
+
 export const projects: Project[] = [
   {
     year: 2023,
@@ -113,3 +118,30 @@ export const technologies: Technology[] = [
     techs: ['Docker', 'AWS', 'CI/CD', 'Terraform'],
   },
 ];
+
+export const industries: Industry[] = [
+    {
+      name: 'FinTech',
+      count: '04',
+    },
+    {
+      name: 'Healthcare',
+      count: '02',
+    },
+    {
+      name: 'Energy',
+      count: '01',
+    },
+    {
+      name: 'Education',
+      count: '03',
+    },
+    {
+      name: 'Logistics',
+      count: '05',
+    },
+    {
+      name: 'Real Estate',
+      count: '02',
+    },
+  ];

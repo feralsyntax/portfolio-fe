@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { industries, Industry } from '../temp';
 
 @Component({
   selector: 'app-projects-industries',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './projects-industries.html',
   styleUrl: './projects-industries.scss',
 })
-export class ProjectsIndustries {}
+export class ProjectsIndustries {
+  industries: Industry[] = industries;
+}
