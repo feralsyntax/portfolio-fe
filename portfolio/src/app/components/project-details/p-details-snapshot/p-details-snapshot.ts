@@ -1,0 +1,9 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-p-details-snapshot',
+  imports: [],
+  templateUrl: './p-details-snapshot.html',
+  styleUrl: './p-details-snapshot.scss',
+})
+export class PDetailsSnapshot {}
