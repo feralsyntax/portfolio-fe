@@ -10,7 +10,7 @@ export interface Project {
 
 export interface Technology {
   name: string;
-  tech: string[];
+  techs: string[];
 }
 
 export const projects: Project[] = [
@@ -98,18 +98,18 @@ export const projects: Project[] = [
 export const technologies: Technology[] = [
   {
     name: 'FRONTEND',
-    tech: ['React/Next.js', 'TypeScript', 'Tailwind CSS', 'WebGL'],
+    techs: ['React/Next.js', 'TypeScript', 'Tailwind CSS', 'WebGL'],
   },
   {
     name: 'BACKEND',
-    tech: ['Node.js', 'Go', 'PostgreSQL', 'Redis'],
+    techs: ['Node.js', 'Go', 'PostgreSQL', 'Redis'],
   },
   {
     name: 'AI/ML',
-    tech: ['Python', 'LangChain', 'PyTorch', 'Vector DBs'],
+    techs: ['Python', 'LangChain', 'PyTorch', 'Vector DBs'],
   },
   {
     name: 'INFRA',
-    tech: ['Docker', 'AWS', 'CI/CD', 'Terraform'],
+    techs: ['Docker', 'AWS', 'CI/CD', 'Terraform'],
   },
 ];
