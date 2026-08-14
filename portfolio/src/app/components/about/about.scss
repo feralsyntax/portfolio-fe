@@ -1,0 +1,19 @@
+.about-page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-x: hidden;
+
+  // The page background
+  background-color: #0c0912;
+
+  // Default text rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  main {
+    flex: 1;
+  }
+}
