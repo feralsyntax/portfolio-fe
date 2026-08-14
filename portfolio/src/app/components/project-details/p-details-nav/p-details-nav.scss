@@ -1,0 +1,92 @@
+@use '../../../../assets/styles/colors' as *;
+@use '../../../../assets/styles/d-flex' as d-flex;
+
+.project-details-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+
+  @include d-flex.flex($align: center, $justify: space-between);
+
+  width: 100%;
+  max-width: 1280px;
+
+  margin-inline: auto;
+
+  padding: 16px 20px;
+
+  background-color: rgba($color-surface-graphite, 0.8);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid $color-border;
+
+  &__left {
+    @include d-flex.flex($align: center, $gap: 24px);
+  }
+
+  &__brand {
+    @include d-flex.flex($align: center);
+
+    color: $color-text;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+
+      width: 8px;
+      height: 8px;
+
+      margin-left: 4px;
+
+      background-color: $gradient-ultra-end;
+
+      border-radius: 9999px;
+    }
+  }
+
+  &__back {
+    @include d-flex.flex($align: center, $gap: 4px);
+
+    color: $color-primary;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color 300ms;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    .material-symbols-outlined {
+      font-size: 16px;
+
+      transition: transform 300ms;
+    }
+
+    &:hover .material-symbols-outlined {
+      transform: translateX(-4px);
+    }
+  }
+
+  &__label {
+    color: $color-text-lavender-stone;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
