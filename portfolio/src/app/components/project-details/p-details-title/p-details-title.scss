@@ -1,0 +1,39 @@
+@use '../../../../assets/styles/colors' as *;
+
+.project-title {
+  margin-bottom: 48px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 64px;
+  }
+
+  h1 {
+    margin: 0 0 16px;
+
+    color: $color-text;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+
+    @media (min-width: 768px) {
+      font-size: 48px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  p {
+    max-width: 672px;
+
+    margin: 0;
+
+    color: $color-text-lavender-stone;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+}

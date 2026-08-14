@@ -1,0 +1,13 @@
+@use '../../../assets/styles/colors';
+
+.project-details {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+@media (min-width: 768px) {
+  .project-details {
+    padding: 96px 80px;
+  }
+}
