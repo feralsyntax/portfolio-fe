@@ -1,0 +1,97 @@
+@use '../../../../assets/styles/colors';
+@use '../../../../assets/styles/d-flex';
+
+.intro {
+  position: relative;
+
+  min-height: 50vh;
+
+  @include d-flex.flex-col($justify: center);
+
+  padding: 120px 20px;
+
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding-inline: 64px;
+  }
+}
+
+.intro-content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1024px;
+}
+
+.intro h1 {
+  max-width: 1024px;
+
+  margin-bottom: 24px;
+
+  color: colors.$color-text;
+
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 72px;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+}
+
+.intro p {
+  max-width: 672px;
+
+  margin-bottom: 48px;
+
+  color: colors.$color-text-lavender-stone;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: colors.$color-tertiary-container;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+
+  .material-symbols-outlined {
+    font-size: 24px;
+  }
+}
+
+.glow-effect {
+  position: absolute;
+
+  width: 40vw;
+  height: 40vw;
+
+  top: 50%;
+  right: 0;
+
+  border-radius: 50%;
+
+  transform: translate(25%, -50%);
+
+  background: radial-gradient(circle, rgba(169, 112, 255, 0.15) 0%, rgba(12, 9, 18, 0) 70%);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
