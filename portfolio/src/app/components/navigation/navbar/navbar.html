@@ -1,14 +1,14 @@
 <nav class="navbar">
   <div class="navbar__container">
-    <a class="navbar__brand" href="#">
+    <a class="navbar__brand" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       benie.dev
 
       <span class="navbar__brand-dot"></span>
     </a>
 
     <div class="navbar__links">
-      <a routerLink="projects">Projects</a>
-      <a href="#">About</a>
+      <a routerLink="projects" routerLinkActive="active">Projects</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
     </div>
 
     <button class="navbar__connect">Let's Connect</button>
