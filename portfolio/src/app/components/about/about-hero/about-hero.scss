@@ -17,22 +17,17 @@
   }
 
   &-content {
-    position: relative;
-    z-index: 1;
-
     width: 100%;
-    max-width: 1024px;
+    max-width: 896px;
   }
 
   h1 {
-    max-width: 1024px;
-
     margin-bottom: 24px;
 
-    color: colors.$color-text;
+    color: #eee7dc;
 
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 40px;
+    font-size: 30px !important;
     line-height: 1.1;
     letter-spacing: -0.02em;
     font-weight: 700;
@@ -52,7 +47,7 @@
     color: colors.$color-text-lavender-stone;
 
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 16px !important;
     line-height: 1.7;
     font-weight: 400;
   }
@@ -63,17 +58,13 @@
   align-items: center;
   gap: 8px;
 
-  color: colors.$color-tertiary-container;
+  color: #d98e5f;
 
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.05em;
   font-weight: 500;
-
-  .material-symbols-outlined {
-    font-size: 24px;
-  }
 }
 
 .glow-effect {
@@ -91,7 +82,7 @@
 
   background: radial-gradient(circle, rgba(169, 112, 255, 0.15) 0%, rgba(12, 9, 18, 0) 70%);
 
-  z-index: 0;
+  z-index: -1;
 
   pointer-events: none;
 }

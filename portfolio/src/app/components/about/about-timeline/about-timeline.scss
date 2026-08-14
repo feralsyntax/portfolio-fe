@@ -7,22 +7,27 @@
   padding: 120px 20px;
 
   @media (min-width: 768px) {
-    padding: 120px 64px;
+    padding-inline: 64px;
   }
 }
 
 .section-title {
   margin: 0 0 80px;
 
+  color: #eee7dc;
+
   text-align: center;
 
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 32px;
+  font-size: 30px !important;
   line-height: 1.2;
+  letter-spacing: -0.01em;
   font-weight: 700;
 
   @media (min-width: 768px) {
     font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -72,10 +77,6 @@
     margin-bottom: 0;
   }
 
-  @media (max-width: 767px) {
-    display: block;
-  }
-
   &-spacer,
   &-content {
     width: 45%;
@@ -99,6 +100,8 @@
 
   &-left {
     .milestone-content {
+      order: 1;
+
       text-align: right;
 
       @media (max-width: 767px) {
@@ -106,16 +109,22 @@
       }
     }
 
-    .milestone-spacer {
-      order: 3;
-    }
-
     .milestone-dot {
       order: 2;
     }
 
-    .milestone-content {
-      order: 1;
+    .milestone-spacer {
+      order: 3;
+    }
+
+    .milestone-label {
+      color: colors.$gradient-ultra-start;
+    }
+
+    .milestone-card {
+      &:hover {
+        border-color: colors.$gradient-ultra-start;
+      }
     }
   }
 
@@ -131,6 +140,16 @@
     .milestone-content {
       order: 3;
     }
+
+    .milestone-label {
+      color: colors.$gradient-acacia-start;
+    }
+
+    .milestone-card {
+      &:hover {
+        border-color: colors.$gradient-acacia-start;
+      }
+    }
   }
 
   &-dot {
@@ -143,9 +162,11 @@
 
     border-radius: 50%;
 
+    background-color: colors.$color-background;
+
     transform: translateX(-50%);
 
-    z-index: 2;
+    z-index: 10;
 
     @media (min-width: 768px) {
       left: 50%;
@@ -155,29 +176,32 @@
   &-card {
     padding: 24px;
 
+    background-color: colors.$color-surface-graphite;
+
     border: 1px solid colors.$color-border;
     border-radius: 4px;
 
     transition: border-color 300ms ease;
 
-    &:hover {
-      border-color: colors.$gradient-ultra-start;
-    }
-
     h3 {
       margin: 0 0 8px;
 
+      color: #eee7dc;
+
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 32px;
+      font-size: 18px;
       line-height: 1.3;
+      letter-spacing: -0.01em;
       font-weight: 600;
     }
 
     p {
       margin: 0;
 
+      color: colors.$color-text-lavender-stone;
+
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.6;
       font-weight: 400;
     }
@@ -195,12 +219,10 @@
   }
 }
 
-.dot {
-  &-primary {
-    border: 2px solid colors.$gradient-ultra-start;
-  }
+.dot-primary {
+  border: 2px solid colors.$gradient-ultra-start;
+}
 
-  &-secondary {
-    border: 2px solid colors.$gradient-acacia-start;
-  }
+.dot-secondary {
+  border: 2px solid colors.$gradient-acacia-start;
 }
