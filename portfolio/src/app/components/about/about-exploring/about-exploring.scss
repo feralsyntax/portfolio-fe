@@ -1,0 +1,136 @@
+@use '../../../../assets/styles/colors';
+
+.currently {
+  width: 100%;
+
+  margin: 120px 0;
+
+  padding: 120px 20px;
+
+  background-color: colors.$color-surface-graphite;
+
+  border-top: 1px solid colors.$color-border;
+  border-bottom: 1px solid colors.$color-border;
+
+  @media (min-width: 768px) {
+    padding-inline: 64px;
+  }
+
+  &-container {
+    width: 100%;
+    max-width: 1152px;
+
+    margin: 0 auto;
+  }
+
+  &-label {
+    display: block;
+
+    margin-bottom: 48px;
+
+    color: colors.$color-text-lavender-stone;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+
+    text-transform: uppercase;
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 24px;
+
+    background-color: colors.$color-surface-graphite;
+
+    border: 1px solid colors.$color-border;
+    border-radius: 4px;
+
+    transition:
+      border-color 300ms ease,
+      box-shadow 300ms ease;
+
+    &-indicator {
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 4px;
+
+      transition: box-shadow 300ms ease;
+    }
+
+    &-content {
+      padding-left: 16px;
+
+      h3 {
+        margin: 0 0 8px;
+
+        color: #eee7dc;
+
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+
+        color: colors.$color-text-lavender-stone;
+
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+      }
+    }
+
+    &-primary {
+      .currently-card-indicator {
+        background-color: colors.$gradient-ultra-start;
+      }
+
+      &:hover {
+        border-color: colors.$gradient-ultra-start;
+
+        .currently-card-indicator {
+          box-shadow: 0 0 12px rgba(169, 112, 255, 0.6);
+        }
+      }
+    }
+
+    &-secondary {
+      .currently-card-indicator {
+        background-color: colors.$gradient-acacia-start;
+      }
+
+      &:hover {
+        border-color: colors.$gradient-acacia-start;
+
+        .currently-card-indicator {
+          box-shadow: 0 0 12px rgba(242, 166, 90, 0.6);
+        }
+      }
+    }
+  }
+}
