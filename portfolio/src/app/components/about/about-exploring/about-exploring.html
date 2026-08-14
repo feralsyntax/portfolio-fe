@@ -1,1 +1,27 @@
-<p>about-exploring works!</p>
+<section class="currently">
+  <div class="currently-container">
+    <span class="currently-label"> Now exploring </span>
+
+    <div class="currently-grid">
+      @for (item of currentlyExploring; track item.title) {
+        <div
+          class="currently-card"
+          [class.currently-card-primary]="item.accent === 'primary'"
+          [class.currently-card-secondary]="item.accent === 'secondary'"
+        >
+          <div class="currently-card-indicator"></div>
+
+          <div class="currently-card-content">
+            <h3>
+              {{ item.title }}
+            </h3>
+
+            <p>
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
