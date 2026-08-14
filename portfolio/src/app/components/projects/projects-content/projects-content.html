@@ -1,1 +1,54 @@
-<p>projects-content works!</p>
+<section class="projects" id="section-01">
+  <div class="section-header">
+    <span class="section-header__number">01</span>
+
+    <h2>Projects</h2>
+  </div>
+
+  <div class="project-grid">
+    @for (project of projectsList; track project.name) {
+      @if (project.batch <= currentBatch) {
+        <article
+          class="project-card"
+          [class.project-card--logistics]="project.accent === 'logistics'"
+          [class.project-card--ai]="project.accent === 'ai'"
+          [class.project-card--fintech]="project.accent === 'fintech'"
+        >
+          <div class="project-card__accent"></div>
+
+          <div class="project-card__content">
+            <div class="project-card__details">
+              <span class="project-card__meta"> {{ project.year }} // {{ project.category }} </span>
+
+              <h3>{{ project.name }}</h3>
+
+              <p>
+                {{ project.description }}
+              </p>
+            </div>
+
+            @if (project.technologies.length) {
+              <div class="project-card__technologies">
+                @for (technology of project.technologies; track technology) {
+                  <span>{{ technology }}</span>
+                }
+              </div>
+            }
+          </div>
+        </article>
+      }
+    }
+  </div>
+
+  <div class="projects__load-more">
+    @if (currentBatch < 2) {
+      <button type="button" (click)="loadMore()">
+        <span class="material-symbols-outlined"> add </span>
+
+        <span> Load More Projects </span>
+      </button>
+    } @else {
+      <div class="projects__end-note">// You've reached the end of the archive.</div>
+    }
+  </div>
+</section>
