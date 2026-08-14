@@ -1,0 +1,403 @@
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 8rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    grid-column: span 5;
+  }
+}
+
+.contact-details-card {
+  height: 100%;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #16111f;
+  border: 1px solid #2a2133;
+  border-radius: 0.75rem;
+
+  transition: background-color 300ms;
+
+  &:hover {
+    background: #221a2c;
+  }
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.contact-details-content {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  h3 {
+    margin-bottom: 0.75rem;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #a79ca8;
+  }
+
+  a {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+
+    color: #eee7dc;
+    text-decoration: none;
+
+    transition: color 150ms;
+
+    .material-symbols-outlined {
+      opacity: 0;
+      transform: translateX(-1rem);
+
+      color: #a970ff;
+
+      transition: all 150ms;
+    }
+
+    &:hover {
+      color: #a970ff;
+
+      .material-symbols-outlined {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color: #eee7dc;
+}
+
+.contact-location-icon {
+  color: #d98e5f;
+}
+
+.contact-timezone-icon {
+  color: #a79ca8;
+}
+
+.contact-info-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color: #eee7dc;
+}
+
+.contact-details-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+
+  border-top: 1px solid #2a2133;
+
+  p {
+    margin-bottom: 1.5rem;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
+
+    color: #a79ca8;
+  }
+}
+
+.contact-socials {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #a970ff;
+    border-radius: 0.25rem;
+
+    color: #a970ff;
+
+    transition: all 150ms;
+
+    &:hover {
+      background: rgba(169, 112, 255, 0.1);
+      box-shadow: 0 0 15px rgba(169, 112, 255, 0.2);
+    }
+  }
+}
+
+.contact-form-container {
+  @media (min-width: 768px) {
+    grid-column: span 7;
+  }
+}
+
+.contact-form-card {
+  position: relative;
+  height: 100%;
+  padding: 2rem;
+
+  overflow: hidden;
+
+  background: #16111f;
+  border: 1px solid #2a2133;
+  border-radius: 0.75rem;
+
+  transition: background-color 300ms;
+
+  &:hover {
+    background: #221a2c;
+  }
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.contact-form {
+  position: relative;
+  z-index: 10;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+
+    color: #a79ca8;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+
+    color: #eee7dc;
+    background: #0c0912;
+
+    border: 1px solid #2a2133;
+    border-radius: 0.25rem;
+
+    transition: all 150ms;
+
+    &:focus {
+      outline: none;
+      border-color: #a970ff;
+      box-shadow: 0 0 15px rgba(169, 112, 255, 0.15);
+    }
+
+    &::placeholder {
+      color: #a79ca8;
+    }
+  }
+
+  select {
+    appearance: none;
+  }
+}
+
+.form-message {
+  flex-grow: 1;
+
+  textarea {
+    flex-grow: 1;
+    min-height: 150px;
+
+    resize: none;
+  }
+}
+
+.contact-form > button {
+  width: 100%;
+  margin-top: auto;
+  padding: 1rem;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  color: #eee7dc;
+
+  background: linear-gradient(135deg, #a970ff 0%, #6c4abf 100%);
+
+  border: none;
+  border-radius: 0.25rem;
+
+  cursor: pointer;
+
+  transition: all 300ms;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(169, 112, 255, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.success-state {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2.5rem;
+
+  background: #16111f;
+  border-radius: 0.75rem;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 500ms;
+}
+
+.success-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9999px;
+
+  background: rgba(169, 112, 255, 0.2);
+
+  .material-symbols-outlined {
+    font-size: 32px;
+    color: #a970ff;
+  }
+}
+
+.success-state h3 {
+  margin-bottom: 0.5rem;
+
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+
+  color: #eee7dc;
+
+  text-align: center;
+}
+
+.success-state p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color: #a79ca8;
+
+  text-align: center;
+}
+
+.success-state button {
+  margin-top: 2rem;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+
+  color: #a970ff;
+
+  background: none;
+  border: none;
+
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: #d6baff;
+  }
+}
