@@ -1,0 +1,12 @@
+@use '../../../assets/styles/colors' as *;
+@use '../../../assets/styles/d-flex' as d-flex;
+
+.projects-page {
+  max-width: 1280px;
+  margin-inline: auto;
+
+  padding-inline: 32px;
+  padding-block: 48px;
+
+  @include d-flex.flex-col($gap: 96px);
+}
