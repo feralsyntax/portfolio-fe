@@ -1,1 +1,39 @@
-<p>about-timeline works!</p>
+<section class="timeline-section">
+  <h2 class="section-title">The Path So Far</h2>
+
+  <div class="timeline">
+    <div class="timeline-line"></div>
+
+    @for (milestone of milestones; track milestone.title; let i = $index) {
+      <div
+        class="milestone"
+        [class.milestone-left]="i % 2 === 0"
+        [class.milestone-right]="i % 2 !== 0"
+      >
+        <div class="milestone-spacer"></div>
+
+        <div
+          class="milestone-dot"
+          [class.dot-primary]="i % 2 === 0"
+          [class.dot-secondary]="i % 2 !== 0"
+        ></div>
+
+        <div class="milestone-content">
+          <div class="milestone-card">
+            <span class="milestone-label">
+              {{ milestone.label }}
+            </span>
+
+            <h3>
+              {{ milestone.title }}
+            </h3>
+
+            <p>
+              {{ milestone.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
