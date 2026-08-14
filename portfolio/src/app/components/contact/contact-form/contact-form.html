@@ -1,0 +1,113 @@
+<section class="contact-layout" id="contact">
+  <!-- Left: Contact Details Card -->
+  <div class="contact-details">
+    <div class="contact-details-card">
+      <div class="contact-details-content">
+        <!-- Direct -->
+        <div>
+          <h3>Direct</h3>
+
+          <a href="mailto:hello@benie.dev">
+            hello@benie.dev
+
+            <span class="material-symbols-outlined"> arrow_forward </span>
+          </a>
+        </div>
+
+        <!-- Location -->
+        <div>
+          <h3>Location</h3>
+
+          <div class="contact-info">
+            <span
+              class="material-symbols-outlined contact-location-icon"
+              style="font-variation-settings: 'FILL' 1"
+            >
+              location_on
+            </span>
+
+            Nairobi, Kenya
+          </div>
+        </div>
+
+        <!-- Timezone -->
+        <div>
+          <h3>Timezone</h3>
+
+          <div class="contact-info">
+            <span class="material-symbols-outlined contact-timezone-icon"> schedule </span>
+
+            EAT / UTC+3
+          </div>
+        </div>
+
+        <!-- Response Time -->
+        <div>
+          <h3>Response Time</h3>
+
+          <div class="contact-info-text">Usually within 24 hours.</div>
+        </div>
+      </div>
+
+      <div class="contact-details-footer">
+        <p>Prefer email? That works best for detailed project briefs.</p>
+
+        <div class="contact-socials">
+          <a href="#">
+            <span class="material-symbols-outlined">code</span>
+          </a>
+
+          <a href="#">
+            <span class="material-symbols-outlined">work</span>
+          </a>
+
+          <a href="#">
+            <span class="material-symbols-outlined">chat</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Contact Form Card -->
+  <div class="contact-form-container">
+    <div class="contact-form-card">
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Name</label>
+
+            <input type="text" placeholder="John Doe" required />
+          </div>
+
+          <div class="form-field">
+            <label>Email</label>
+
+            <input type="email" placeholder="john@example.com" required />
+          </div>
+        </div>
+
+        <div class="form-field form-message">
+          <label>Message</label>
+
+          <textarea placeholder="Tell me about your project..." required></textarea>
+        </div>
+
+        <button type="button">Send Message</button>
+      </form>
+
+      <!-- Success State overlay -->
+      <div class="success-state" id="successState">
+        <div class="success-icon">
+          <span class="material-symbols-outlined"> check_circle </span>
+        </div>
+
+        <h3>Message sent</h3>
+
+        <p>I'll get back to you within 24 hours.</p>
+
+        <button type="button">Send another message</button>
+      </div>
+    </div>
+  </div>
+</section>
