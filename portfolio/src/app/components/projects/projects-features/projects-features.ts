@@ -6,4 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './projects-features.html',
   styleUrl: './projects-features.scss',
 })
-export class ProjectsFeatures {}
+export class ProjectsFeatures {
+  features = [
+    'Admin Portals & Operations Dashboards',
+    'LLM / AI Integration Pipelines',
+    'Real-time Telemetry & Data Visualization',
+    'Enterprise Auth & RBAC Systems',
+    'RESTful / GraphQL API Design',
+    'Edge Deployments & Microservices',
+  ];
+}
