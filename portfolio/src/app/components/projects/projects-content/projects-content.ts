@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { projects, Project } from '../temp';
 
 @Component({
   selector: 'app-projects-content',
@@ -6,4 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './projects-content.html',
   styleUrl: './projects-content.scss',
 })
-export class ProjectsContent {}
+export class ProjectsContent {
+  projectsList: Project[] = projects;
+
+  currentBatch = 0;
+
+  loadMore(): void {
+    this.currentBatch++;
+  }
+}
