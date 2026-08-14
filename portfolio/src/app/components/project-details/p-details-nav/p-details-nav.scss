@@ -21,6 +21,12 @@
 
   border-bottom: 1px solid $color-border;
 
+  padding-inline: 20px;
+
+  @media (min-width: 768px) {
+    padding-inline: 80px;
+  }
+
   &__left {
     @include d-flex.flex($align: center, $gap: 24px);
   }
