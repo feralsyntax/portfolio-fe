@@ -1,0 +1,17 @@
+<section class="industries" id="section-04">
+  <div class="section-header">
+    <span class="section-header__number">04</span>
+
+    <h2>Industries</h2>
+  </div>
+
+  <div class="industries-list">
+    @for (industry of industries; track industry.name) {
+      <div class="industry">
+        <span>{{ industry.name }}</span>
+
+        <span>{{ industry.count }}</span>
+      </div>
+    }
+  </div>
+</section>

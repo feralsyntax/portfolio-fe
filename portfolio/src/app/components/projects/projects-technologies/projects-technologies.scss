@@ -1,0 +1,100 @@
+@use '../../../../assets/styles/colors' as *;
+@use '../../../../assets/styles/d-flex' as d-flex;
+
+.technologies {
+  @include d-flex.flex-col($gap: 24px);
+
+  padding-top: 48px;
+
+  border-top: 1px solid $color-border;
+}
+
+.section-header {
+  @include d-flex.flex($align: baseline, $gap: 16px);
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid $color-border;
+
+  &__number {
+    color: $color-text-lavender-stone;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  h2 {
+    margin: 0;
+
+    color: $color-text;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 600;
+
+    @media (max-width: 767px) {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+  }
+}
+
+.expertise {
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    margin-top: 16px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &-group {
+    @include d-flex.flex-col($gap: 16px);
+
+    h3 {
+      margin: 0;
+
+      padding-bottom: 8px;
+
+      border-bottom: 1px solid $color-border;
+
+      color: $color-text-lavender-stone;
+
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+  }
+
+  &-techs {
+    @include d-flex.flex($wrap: wrap, $gap: 8px);
+
+    span {
+      padding: 6px 12px;
+
+      border: 1px solid $color-border;
+
+      background-color: $color-surface;
+
+      color: $color-text;
+
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<section class="projects-features" id="section-03">
+  <div class="section-header">
+    <span class="section-header__number">03</span>
+
+    <h2>Features</h2>
+  </div>
+
+  <div class="features-grid">
+    @for (feature of features; track feature) {
+      <div class="feature">
+        <span class="material-symbols-outlined"> check_box </span>
+
+        <span>{{ feature }}</span>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,85 @@
+@use '../../../../assets/styles/colors' as *;
+@use '../../../../assets/styles/d-flex' as d-flex;
+
+.industries {
+  @include d-flex.flex-col($gap: 24px);
+
+  padding-top: 48px;
+  margin-bottom: 48px;
+
+  border-top: 1px solid $color-border;
+}
+
+.section-header {
+  @include d-flex.flex($align: baseline, $gap: 16px);
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid $color-border;
+
+  &__number {
+    color: $color-text-lavender-stone;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  h2 {
+    margin: 0;
+
+    color: $color-text;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 600;
+
+    @media (max-width: 767px) {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+  }
+}
+
+.industries-list {
+  @include d-flex.flex($wrap: wrap, $gap: 16px);
+
+  margin-top: 16px;
+}
+
+.industry {
+  @include d-flex.flex($align: center, $justify: space-between, $gap: 24px);
+
+  padding: 8px 16px;
+
+  border: 1px solid $color-border;
+
+  background-color: $color-surface;
+
+  transition: background-color 200ms;
+
+  &:hover {
+    background-color: $color-surface-container-high;
+  }
+
+  span:first-child {
+    color: $color-text;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  span:last-child {
+    color: $color-primary-container;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}
