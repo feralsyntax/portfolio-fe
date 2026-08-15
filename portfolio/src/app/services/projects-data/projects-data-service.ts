@@ -50,6 +50,14 @@ export class ProjectsDataService {
 
   readonly featuredProject = computed(() => this.projects().find((project) => project.is_featured));
 
+  readonly technologies = computed(() => [
+    ...new Set(this.projects().flatMap((project) => project.technologies)),
+  ]);
+
+  readonly industries = computed(() => [
+    ...new Set(this.projects().map((project) => project.industry.name)),
+  ]);
+
   getProjectByUuid(uuid: string): Project | undefined {
     return this.projects().find((project) => project.uuid === uuid);
   }
