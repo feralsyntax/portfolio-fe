@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { Feature } from '../../../api/openapi';
 
 @Component({
   selector: 'app-projects-features',
@@ -7,12 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './projects-features.scss',
 })
 export class ProjectsFeatures {
-  features = [
-    'Admin Portals & Operations Dashboards',
-    'LLM / AI Integration Pipelines',
-    'Real-time Telemetry & Data Visualization',
-    'Enterprise Auth & RBAC Systems',
-    'RESTful / GraphQL API Design',
-    'Edge Deployments & Microservices',
-  ];
+  readonly features = input<Feature[]>([]);
 }

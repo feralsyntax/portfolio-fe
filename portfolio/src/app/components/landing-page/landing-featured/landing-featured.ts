@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ProjectsDataService } from '../../../services/projects-data/projects-data-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-featured',
@@ -14,4 +16,10 @@ export class LandingFeatured {
   readonly featuredWorkLongDescription = `An AI companion that helps Kenyan youth discover themselves. Built with advanced LLM
         integration, real-time context processing, and a heavily optimized React frontend delivering
         a seamless conversational experience.`;
+
+  protected readonly projectsData = inject(ProjectsDataService);
+
+  openDemo(url: string) {
+    window.open(url, 'blank', 'noopener,noreferrer');
+  }
 }
