@@ -187,6 +187,10 @@
 
     &:hover {
       border-color: $gradient-ultra-start;
+
+      .material-symbols-outlined {
+        color: $gradient-ultra-start;
+      }
     }
 
     .material-symbols-outlined {
@@ -200,7 +204,15 @@
     color: $color-text;
 
     &:hover {
-      background-color: rgba(150, 141, 159, 0.2);
+      border-color: $gradient-acacia-start;
+
+      .material-symbols-outlined {
+        color: $gradient-acacia-start;
+      }
+    }
+
+    .material-symbols-outlined {
+      font-size: 0.875rem;
     }
   }
 }

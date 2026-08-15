@@ -10,8 +10,8 @@
 
       <img
         class="featured-work__image"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmTx_UU0bLIqDDM_cy0jsQkZOTRTEK2aFUfkAz2oeGgSKOowILzSOGY3jT_CFh6uKgRcgjzF-evLQp-BTaswJ_I1uFOrgQmaZba7vzVm9e_KrlAyaj6mNoI3L8mlWD2yTUb0hohOeyvsK_3SS-seaIExnnSGuwUffIXyTn9066Jz79xZicWRCsH4cH7vNq-Py7Y2JYzxj25vNM5_wepMmEQy8E2kevxfx3eXzLaGwV3vjIj6mlgQHc"
-        alt="A sleek, dark-themed user interface dashboard with semi-transparent glassmorphic panels, glowing purple accents, and abstract chat bubbles, designed for an AI application called 'Nia' against a dark grid background."
+        src="{{ featuredWorkImgUrl }}"
+        alt="{{ featuredWorkImgAlt }}"
       />
     </div>
 
@@ -19,13 +19,11 @@
       <div>
         <div class="featured-work__label">Case Study</div>
 
-        <h3>Nia</h3>
+        <h3>{{ featuredWorkTitle }}</h3>
       </div>
 
       <p>
-        An AI companion that helps Kenyan youth discover themselves. Built with advanced LLM
-        integration, real-time context processing, and a heavily optimized React frontend delivering
-        a seamless conversational experience.
+        {{ featuredWorkLongDescription }}
       </p>
 
       <div class="featured-work__tags">
@@ -41,7 +39,11 @@
           <span class="material-symbols-outlined"> arrow_right_alt </span>
         </button>
 
-        <button class="featured-work__demo">Demo</button>
+        <button class="featured-work__demo">
+          Demo
+
+          <span class="material-symbols-outlined"> open_in_new </span>
+        </button>
       </div>
     </div>
   </div>
