@@ -54,6 +54,10 @@ export class ProjectsDataService {
     ...new Set(this.projects().flatMap((project) => project.technologies)),
   ]);
 
+  readonly features = computed(() => [
+    ...new Set(this.projects().flatMap((project) => project.features)),
+  ]);
+
   readonly industries = computed(() => [
     ...new Set(this.projects().map((project) => project.industry.name)),
   ]);
