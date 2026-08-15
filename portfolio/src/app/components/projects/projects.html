@@ -7,7 +7,7 @@
   } @else if (projectsData.state().status === 'success') {
     <app-projects-content [projects]="projectsData.projects()" />
     <app-projects-technologies />
-    <app-projects-features />
+    <app-projects-features [features]="projectsData.features()" />
     <app-projects-industries />
   }
 </main>
