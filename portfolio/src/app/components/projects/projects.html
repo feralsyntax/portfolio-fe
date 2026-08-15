@@ -6,7 +6,7 @@
     <p>We couldn't fetch projects right now. Please try again.</p>
   } @else if (projectsData.state().status === 'success') {
     <app-projects-content [projects]="projectsData.projects()" />
-    <app-projects-technologies />
+    <app-projects-technologies [technologies]="projectsData.technologies()" />
     <app-projects-features [features]="projectsData.features()" />
     <app-projects-industries />
   }

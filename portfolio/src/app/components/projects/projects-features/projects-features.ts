@@ -9,6 +9,4 @@ import { Feature } from '../../../api/openapi';
 })
 export class ProjectsFeatures {
   readonly features = input<Feature[]>([]);
-
-  
 }

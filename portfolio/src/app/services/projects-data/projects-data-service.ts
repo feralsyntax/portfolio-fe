@@ -50,9 +50,15 @@ export class ProjectsDataService {
 
   readonly featuredProject = computed(() => this.projects().find((project) => project.is_featured));
 
-  readonly technologies = computed(() => [
-    ...new Set(this.projects().flatMap((project) => project.technologies)),
-  ]);
+  readonly technologies = computed(() => {
+    const technologies = this.projects().flatMap((project) => project.technologies);
+
+    return [
+      ...new Map(
+        technologies.map((technology) => [technology.name, { name: technology.name }]),
+      ).values(),
+    ];
+  });
 
   readonly features = computed(() => [
     ...new Set(this.projects().flatMap((project) => project.features)),

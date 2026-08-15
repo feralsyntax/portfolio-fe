@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { technologies, Technology } from '../temp';
+import { Component, input } from '@angular/core';
+import { Technology } from '../../../api/openapi';
 
 @Component({
   selector: 'app-projects-technologies',
@@ -8,5 +8,5 @@ import { technologies, Technology } from '../temp';
   styleUrl: './projects-technologies.scss',
 })
 export class ProjectsTechnologies {
-  technologies: Technology[] = technologies;
+  readonly technologies = input<Technology[]>([]);
 }
