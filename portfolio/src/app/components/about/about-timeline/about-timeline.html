@@ -1,5 +1,5 @@
 <section class="timeline-section">
-  <h2 class="section-title">The Path So Far</h2>
+  <h2 class="section-title">{{ timelineTitle }}</h2>
 
   <div class="timeline">
     <div class="timeline-line"></div>
@@ -12,11 +12,13 @@
 
       <div class="milestone-content">
         <div class="milestone-card">
-          <span class="milestone-label"> Early Days </span>
+          <span class="milestone-label"> {{ milestone1.label }}</span>
 
-          <h3>The Spark</h3>
+          <h3>{{ milestone1.title }}</h3>
 
-          <p>First lines of code, driven by curiosity about how systems work.</p>
+          <p>
+            {{ milestone1.description }}
+          </p>
         </div>
       </div>
     </div>
@@ -29,12 +31,12 @@
 
       <div class="milestone-content">
         <div class="milestone-card">
-          <span class="milestone-label"> Full-Stack Era </span>
+          <span class="milestone-label"> {{ milestone2.label }}</span>
 
-          <h3>Full-Stack Foundations</h3>
+          <h3>{{ milestone2.title }}</h3>
 
           <p>
-            Built a fuel station management app and learned the realities of production software.
+            {{ milestone2.description }}
           </p>
         </div>
       </div>
@@ -48,13 +50,12 @@
 
       <div class="milestone-content">
         <div class="milestone-card">
-          <span class="milestone-label"> Human-Centered AI </span>
+          <span class="milestone-label"> {{ milestone3.label }} </span>
 
-          <h3>Nia &amp; Zenth</h3>
+          <h3>{{ milestone3.title }}</h3>
 
           <p>
-            Created AI tools that help Kenyan youth discover themselves and people with ADHD manage
-            daily challenges.
+            {{ milestone3.description }}
           </p>
         </div>
       </div>
@@ -68,13 +69,11 @@
 
       <div class="milestone-content">
         <div class="milestone-card">
-          <span class="milestone-label"> AI Agents </span>
+          <span class="milestone-label"> {{ milestone4.label }}</span>
 
-          <h3>Agentic Workflows</h3>
+          <h3>{{ milestone4.title }}</h3>
 
-          <p>
-            Exploring conversational AI agents integrated into real-world products and workflows.
-          </p>
+          <p>{{ milestone4.description }}</p>
         </div>
       </div>
     </div>
@@ -87,11 +86,13 @@
 
       <div class="milestone-content">
         <div class="milestone-card">
-          <span class="milestone-label"> The Path Ahead </span>
+          <span class="milestone-label"> {{ milestone5.label }} </span>
 
-          <h3>Distributed Systems</h3>
+          <h3>{{ milestone5.title }}</h3>
 
-          <p>Diving deep into IoT, Edge computing, and the infrastructure of the future.</p>
+          <p>
+            {{ milestone5.description }}
+          </p>
         </div>
       </div>
     </div>
@@ -104,13 +105,11 @@
 
       <div class="milestone-content">
         <div class="milestone-card">
-          <span class="milestone-label"> Building in Public </span>
+          <span class="milestone-label"> {{ milestone6.label }} </span>
 
-          <h3>Open Source</h3>
+          <h3>{{ milestone6.title }}</h3>
 
-          <p>
-            Sharing what I learn, contributing to the community, and building software that lasts.
-          </p>
+          <p>{{ milestone6.description }}</p>
         </div>
       </div>
     </div>

@@ -1,48 +1,43 @@
 <section class="hero" id="about">
   <div class="hero__content">
     <h1 class="hero__title">
-      Engineering Digital Ecosystems &
-      <span class="gradient-text-uv">Human-Centered AI</span>
+      {{ titleLead }}
+      <span class="gradient-text-uv">{{ titleSpan }}</span>
     </h1>
 
     <p class="hero__description">
-      By Benie Langat — Architecting robust solutions with React, Angular, Python, Django, and
-      Distributed Systems for the modern web.
+      {{ tagline }}
     </p>
 
     <div class="hero__actions">
-      <a class="hero__primary-action" href="#projects">
+      <a class="hero__primary-action" routerLink="projects">
         Explore Projects
 
         <span class="material-symbols-outlined"> arrow_forward </span>
       </a>
 
-      <a class="hero__secondary-action" href="#"> Read My Journey </a>
+      <a class="hero__secondary-action" routerLink="about"> Read My Journey </a>
     </div>
   </div>
 
   <div class="hero__visual">
     <div class="hero__glow"></div>
 
-    <img
-      class="hero__image"
-      src="https://lh3.googleusercontent.com/aida-public/AB6AXuC90FbgmGospRM2fVXdNncTtB9nm8GpJvJx0D0ch8hQh2pKgljxdG411IFDQLbfVVgf1nkcp0ae8nu5jH71j7La1jqg0Pl2yJSpmVxGvXl7CZWQvfZ2rpuVdA6ZMkoFve8d7qKuFJVO8fZvPx1aEYTeqtoPblgBiOvF-xPvi-Qko_uxC4W77n1xyZV9KZtfU1MDc1WxlVt8Ue0t1HSXK3ALdMPkCwccOCo6XeAZt489CXDEWT2CfCck"
-      alt="A highly detailed 3D rendering of an abstract orb with swirling, organic folds of purple and copper tones, illuminated by a warm, ethereal glow against a deep, dark void background, representing futuristic technology and natural forms merging."
-    />
+    <img class="hero__image" src="{{ heroImgUrl }}" alt="{{ heroImgAlt }}" />
 
-    <div class="hero__tag hero__tag--ai">
+    <div class="hero__tag hero__tag--heroTag1">
       <span></span>
-      AI
+      {{ heroTag1 }}
     </div>
 
-    <div class="hero__tag hero__tag--infra">
+    <div class="hero__tag hero__tag--heroTag2">
       <span></span>
-      Infra
+      {{ hearoTag2 }}
     </div>
 
-    <div class="hero__tag hero__tag--edge">
+    <div class="hero__tag hero__tag--heroTag3">
       <span></span>
-      Edge
+      {{ heroTag3 }}
     </div>
   </div>
 </section>

@@ -5,10 +5,12 @@
     <div class="exploring__label">
       <span class="material-symbols-outlined"> explore </span>
 
-      <span>Currently Exploring</span>
+      <span
+        >Currently Exploring: <small>{{ exploringCurrently }}</small></span
+      >
     </div>
 
-    <div class="exploring__content">Next: Distributed Systems, IoT / Edge Computing, AI Agents</div>
+    <div class="exploring__content">Next: {{ exploringNext }}</div>
 
     <div class="exploring__arrow">
       <span class="material-symbols-outlined"> east </span>
