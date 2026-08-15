@@ -125,7 +125,7 @@
     }
   }
 
-  &__tag--ai {
+  &__tag--heroTag1 {
     top: 2.5rem;
     right: 2.5rem;
     color: $color-primary;
@@ -137,7 +137,7 @@
     }
   }
 
-  &__tag--infra {
+  &__tag--heroTag2 {
     bottom: 5rem;
     left: 1rem;
     color: $color-tertiary;
@@ -147,7 +147,7 @@
     }
   }
 
-  &__tag--edge {
+  &__tag--heroTag3 {
     top: 50%;
     right: -1rem;
     color: $color-secondary;
