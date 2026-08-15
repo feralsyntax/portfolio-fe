@@ -65,8 +65,13 @@ export class ProjectsDataService {
   ]);
 
   readonly industries = computed(() => [
-    ...new Set(this.projects().map((project) => project.industry.name)),
-  ]);
+  ...new Map(
+    this.projects().map((project) => [
+      project.industry.name,
+      { name: project.industry.name },
+    ]),
+  ).values(),
+]);
 
   getProjectByUuid(uuid: string): Project | undefined {
     return this.projects().find((project) => project.uuid === uuid);

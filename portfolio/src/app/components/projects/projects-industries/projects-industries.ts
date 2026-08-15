@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { industries, Industry } from '../temp';
+import { Component, input } from '@angular/core';
+import { Industry } from '../../../api/openapi';
 
 @Component({
   selector: 'app-projects-industries',
@@ -8,5 +8,5 @@ import { industries, Industry } from '../temp';
   styleUrl: './projects-industries.scss',
 })
 export class ProjectsIndustries {
-  industries: Industry[] = industries;
+  readonly industries = input<Industry[]>([]);
 }
