@@ -6,4 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.scss',
 })
-export class ContactForm {}
+export class ContactForm {
+  readonly contactEmail = 'bensonlangat.bl@gmail.com';
+  readonly contactLocation = 'Nakuru, Kenya';
+  readonly contactTimezone = 'EAT / UTC+3';
+  readonly contactResponseTime = 'Usually within 24 hours.';
+
+  readonly contactGithubUrl = 'https://github.com/feralsyntax';
+  readonly contactLinkedInUrl = 'https://ke.linkedin.com/in/benson-langat-software-developer';
+  readonly contactPhoneNumber = '+254708696335';
+}
