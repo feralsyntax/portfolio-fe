@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './landing-exploring.html',
   styleUrl: './landing-exploring.scss',
 })
-export class LandingExploring {}
+export class LandingExploring {
+  readonly exploringCurrently = 'AI Agents';
+  readonly exploringNext = 'Distributed Systems, IoT / Edge Computing';
+}
