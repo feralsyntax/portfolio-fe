@@ -1,7 +1,13 @@
 <main class="projects-page">
   <app-projects-page-context />
-  <app-projects-content />
-  <app-projects-technologies />
-  <app-projects-features />
-  <app-projects-industries />
+  @if (projectsData.state().status === 'loading') {
+    <p>Fetching projects...</p>
+  } @else if (projectsData.state().status === 'error') {
+    <p>We couldn't fetch projects right now. Please try again.</p>
+  } @else if (projectsData.state().status === 'success') {
+    <app-projects-content [projects]="projectsData.projects()" />
+    <app-projects-technologies />
+    <app-projects-features />
+    <app-projects-industries />
+  }
 </main>

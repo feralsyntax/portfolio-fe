@@ -71,13 +71,13 @@
       height: 6px;
     }
 
-    &--logistics {
+    &--health {
       .project-card__accent {
         background: linear-gradient(to right, #c87f52, $color-secondary);
       }
     }
 
-    &--ai {
+    &--health {
       .project-card__accent {
         background: linear-gradient(to right, $color-primary-container, $color-primary);
       }

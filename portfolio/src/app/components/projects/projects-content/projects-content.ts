@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
-import { projects, Project } from '../temp';
+import { Component, computed, input } from '@angular/core';
+import { Project } from '../../../api/openapi';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-projects-content',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './projects-content.html',
   styleUrl: './projects-content.scss',
 })
 export class ProjectsContent {
-  projectsList: Project[] = projects;
+  readonly projects = input<Project[]>([]);
 
-  currentBatch = 0;
+  protected readonly batchSize = 3;
+  protected currentBatch = 1;
 
-  loadMore(): void {
+  protected readonly visibleProjects = computed(() =>
+    this.projects().slice(0, this.currentBatch * this.batchSize),
+  );
+
+  protected loadMore(): void {
     this.currentBatch++;
   }
 }
