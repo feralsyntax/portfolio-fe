@@ -1,8 +1,13 @@
 <app-p-details-nav />
 <main class="project-details">
-  <app-p-details-title />
-  <app-p-details-snapshot [snapshot]="project?.snapshot" />
-  <app-p-details-description />
-  <app-p-details-content />
-  <app-p-details-more />
+  @if (project) {
+    <app-p-details-title
+      [projectName]="project.name"
+      [projectShortDescription]="project.short_description"
+    />
+    <app-p-details-snapshot [projectSnapshot]="project.snapshot" [projectName]="project.name" />
+    <app-p-details-description />
+    <app-p-details-content />
+    <app-p-details-more />
+  }
 </main>

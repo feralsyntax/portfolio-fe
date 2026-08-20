@@ -7,6 +7,6 @@ import { Component, input } from '@angular/core';
   styleUrl: './p-details-snapshot.scss',
 })
 export class PDetailsSnapshot {
-  readonly snapshot = input<string | null | undefined>(null);
+  readonly projectSnapshot = input<string | null | undefined>(null);
   readonly projectName = input<string>();
 }
