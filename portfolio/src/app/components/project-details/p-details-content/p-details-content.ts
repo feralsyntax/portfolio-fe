@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Project } from '../../../api/openapi';
+import { ProjectTechs } from '../../../services/projects-data/projects-data-service';
 
 @Component({
   selector: 'app-p-details-content',
@@ -7,24 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './p-details-content.scss',
 })
 export class PDetailsContent {
-  frontendTechnologies = ['Angular', 'TypeScript'];
-
-  backendTechnologies = ['Django', 'Python', 'PostgreSQL'];
-
-  otherTechnologies = ['Docker', 'AWS'];
-
-  features = [
-    {
-      name: 'Workflow',
-      description: 'Maker-checker approval flow for data integrity.',
-    },
-    {
-      name: 'Tracking',
-      description: 'Real-time inventory and sales monitoring.',
-    },
-    {
-      name: 'Operations',
-      description: 'Automated shift handovers and incident logging.',
-    },
-  ];
+  readonly projectDetails = input<Project | undefined>(undefined);
+  readonly technologies = input<ProjectTechs | undefined>(undefined);
 }

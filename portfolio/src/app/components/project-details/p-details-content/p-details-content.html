@@ -1,99 +1,104 @@
-<section class="project-details">
-  <!-- Left Meta Panel -->
-  <aside class="project-details__meta">
-    <div class="project-details__meta-content">
-      <div>
-        <h3>Tech Stack</h3>
+@if (projectDetails()) {
+  <section class="project-details">
+    <!-- Left Meta Panel -->
+    <aside class="project-details__meta">
+      <div class="project-details__meta-content">
+        <div>
+          <h3>Tech Stack</h3>
 
-        <div class="project-details__stack">
-          <div>
-            <h4 class="project-details__stack-title project-details__stack-title--frontend">
-              Frontend
-            </h4>
+          <div class="project-details__stack">
+            <div>
+              <h4 class="project-details__stack-title project-details__stack-title--frontend">
+                Frontend
+              </h4>
 
-            <div class="project-details__tags">
-              @for (technology of frontendTechnologies; track technology) {
-                <span>{{ technology }}</span>
-              }
+              <div class="project-details__tags">
+                @for (frontEnd of technologies()?.frontEnd; track frontEnd) {
+                  <span>{{ frontEnd }}</span>
+                }
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h4 class="project-details__stack-title project-details__stack-title--backend">
-              Backend
-            </h4>
+            <div>
+              <h4 class="project-details__stack-title project-details__stack-title--backend">
+                Backend
+              </h4>
 
-            <div class="project-details__tags">
-              @for (technology of backendTechnologies; track technology) {
-                <span>{{ technology }}</span>
-              }
+              <div class="project-details__tags">
+                @for (backEnd of technologies()?.backEnd; track backEnd) {
+                  <span>{{ backEnd }}</span>
+                }
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h4 class="project-details__stack-title project-details__stack-title--other">Other</h4>
+            <div>
+              <h4 class="project-details__stack-title project-details__stack-title--other">
+                Other
+              </h4>
 
-            <div class="project-details__tags">
-              @for (technology of otherTechnologies; track technology) {
-                <span>{{ technology }}</span>
-              }
+              <div class="project-details__tags">
+                @for (otherTech of technologies()?.otherTechs; track otherTech) {
+                  <span>{{ otherTech }}</span>
+                }
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div>
-        <a class="project-details__live-site" href="#">
-          Visit Live Site
+        <div>
+          <a
+            class="project-details__live-site"
+            href="{{ projectDetails()?.details?.live_site }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Live Site
 
-          <span class="material-symbols-outlined"> open_in_new </span>
-        </a>
+            <span class="material-symbols-outlined"> open_in_new </span>
+          </a>
+        </div>
       </div>
+    </aside>
+
+    <!-- Right Narrative -->
+    <div class="project-details__narrative">
+      <section>
+        <div class="project-details__section-header">
+          <span>01</span>
+          <h2>Problem</h2>
+        </div>
+
+        <p>
+          {{ projectDetails()?.details?.problem }}
+        </p>
+      </section>
+
+      <section>
+        <div class="project-details__section-header">
+          <span>02</span>
+          <h2>Solution</h2>
+        </div>
+
+        <p>
+          {{ projectDetails()?.details?.solution }}
+        </p>
+      </section>
+
+      <section>
+        <div class="project-details__section-header">
+          <span>03</span>
+          <h2>Key Features</h2>
+        </div>
+
+        <div class="project-details__features">
+          @for (feature of projectDetails()?.details?.key_features; track feature.title) {
+            <div class="project-details__feature">
+              <span>{{ feature.title }}</span>
+              <span>{{ feature.description }}</span>
+            </div>
+          }
+        </div>
+      </section>
     </div>
-  </aside>
-
-  <!-- Right Narrative -->
-  <div class="project-details__narrative">
-    <section>
-      <div class="project-details__section-header">
-        <span>01</span>
-        <h2>Problem</h2>
-      </div>
-
-      <p>
-        Fuel station managers face challenges with reconciliation of sales, tracking inventory in
-        real-time, and managing shift handovers securely. Discrepancies often lead to financial
-        losses and compromised operational integrity.
-      </p>
-    </section>
-
-    <section>
-      <div class="project-details__section-header">
-        <span>02</span>
-        <h2>Solution</h2>
-      </div>
-
-      <p>
-        A robust web application providing a centralized dashboard for station operations. By
-        digitizing logs and enforcing a strict maker-checker workflow for crucial data entries, the
-        system ensures data validity before it affects inventory or financial reports.
-      </p>
-    </section>
-
-    <section>
-      <div class="project-details__section-header">
-        <span>03</span>
-        <h2>Key Features</h2>
-      </div>
-
-      <div class="project-details__features">
-        @for (feature of features; track feature.name) {
-          <div class="project-details__feature">
-            <span>{{ feature.name }}</span>
-            <span>{{ feature.description }}</span>
-          </div>
-        }
-      </div>
-    </section>
-  </div>
-</section>
+  </section>
+}

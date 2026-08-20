@@ -7,5 +7,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './p-details-description.scss',
 })
 export class PDetailsDescription {
-  readonly projectLongDescription = input<string>('');
+  readonly projectLongDescription = input<string | undefined>(undefined);
 }

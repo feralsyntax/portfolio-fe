@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { PDetailsNav } from './p-details-nav/p-details-nav';
 import { PDetailsTitle } from './p-details-title/p-details-title';
 import { PDetailsSnapshot } from './p-details-snapshot/p-details-snapshot';
@@ -6,7 +6,10 @@ import { PDetailsDescription } from './p-details-description/p-details-descripti
 import { PDetailsContent } from './p-details-content/p-details-content';
 import { PDetailsMore } from './p-details-more/p-details-more';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectsDataService } from '../../services/projects-data/projects-data-service';
+import {
+  ProjectsDataService,
+  ProjectTechs,
+} from '../../services/projects-data/projects-data-service';
 
 @Component({
   selector: 'app-project-details',
@@ -27,5 +30,13 @@ export class ProjectDetails {
 
   protected readonly uuid = this.route.snapshot.paramMap.get('uuid')!;
 
-  protected readonly project = this.projectsData.getProjectByUuid(this.uuid);
+  protected readonly project = computed(() => this.projectsData.getProjectByUuid(this.uuid));
+
+  protected readonly technologies = computed(() => {
+    const project = this.project();
+
+    return project ? this.projectsData.getTechs(project) : undefined;
+  });
+
+  protected readonly otherProjects = computed(() => this.projectsData.getOtherProjects(this.uuid));
 }
