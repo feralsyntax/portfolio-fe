@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
-  imports: [],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.scss',
 })
@@ -15,4 +16,27 @@ export class ContactForm {
   readonly contactGitHubUrl = 'https://github.com/feralsyntax';
   readonly contactLinkedInUrl = 'https://ke.linkedin.com/in/benson-langat-software-developer';
   readonly contactPhoneNumber = '+254708696335';
+
+  private readonly fb = inject(FormBuilder);
+
+  contactForm = this.fb.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    message: ['', Validators.required],
+  });
+
+  onSubmit() {
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
+
+    const formValue = this.contactForm.getRawValue();
+
+    const payload = {
+      name: formValue.name!,
+      email: formValue.email!,
+      message: formValue.message!,
+    };
+  }
 }
