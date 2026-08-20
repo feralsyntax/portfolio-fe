@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-p-details-description',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './p-details-description.html',
   styleUrl: './p-details-description.scss',
 })
-export class PDetailsDescription {}
+export class PDetailsDescription {
+  readonly projectLongDescription = input<string>('');
+}
