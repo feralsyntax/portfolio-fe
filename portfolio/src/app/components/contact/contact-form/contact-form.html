@@ -73,12 +73,15 @@
   <div class="contact-form-container">
     <div class="contact-form-card">
       <form class="contact-form" id="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<<<<<<< HEAD
         @if (serverError()) {
           <div class="error">
             {{ serverError() }}
           </div>
         }
 
+=======
+>>>>>>> 998e686 (update (contact-form): update component structure && add error handling && update form)
         <div class="form-row">
           <div class="form-field">
             <label>Name</label>
@@ -92,12 +95,15 @@
                 <small>Your name is required</small>
               }
             }
+<<<<<<< HEAD
 
             @if (contactForm.get('name')?.errors?.['server']) {
               <small>
                 {{ contactForm.get('name')?.errors?.['server'] }}
               </small>
             }
+=======
+>>>>>>> 998e686 (update (contact-form): update component structure && add error handling && update form)
           </div>
 
           <div class="form-field">
@@ -116,12 +122,15 @@
             @if (contactForm.get('email')?.hasError('email')) {
               <small>Please enter a valid email address</small>
             }
+<<<<<<< HEAD
 
             @if (contactForm.get('email')?.errors?.['server']) {
               <small>
                 {{ contactForm.get('email')?.errors?.['server'] }}
               </small>
             }
+=======
+>>>>>>> 998e686 (update (contact-form): update component structure && add error handling && update form)
           </div>
         </div>
 
@@ -142,12 +151,15 @@
               <small>Your message is required</small>
             }
           }
+<<<<<<< HEAD
 
           @if (contactForm.get('message')?.errors?.['server']) {
             <small>
               {{ contactForm.get('message')?.errors?.['server'] }}
             </small>
           }
+=======
+>>>>>>> 998e686 (update (contact-form): update component structure && add error handling && update form)
         </div>
 
         <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
