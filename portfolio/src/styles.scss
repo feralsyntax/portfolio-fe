@@ -1,7 +1,22 @@
+@use '@angular/material' as mat;
+
 @use './assets/styles/base';
 @use './assets/styles/colors';
 @use './assets/styles/d-flex';
 @use './assets/styles/flex-align';
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
 
 button,
 input,
