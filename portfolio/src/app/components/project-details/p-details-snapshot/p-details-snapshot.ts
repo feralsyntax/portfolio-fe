@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-p-details-snapshot',
@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './p-details-snapshot.html',
   styleUrl: './p-details-snapshot.scss',
 })
-export class PDetailsSnapshot {}
+export class PDetailsSnapshot {
+  readonly projectSnapshot = input<string | null | undefined>(null);
+  readonly projectName = input<string>();
+}

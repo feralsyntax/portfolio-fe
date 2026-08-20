@@ -17,6 +17,12 @@ export type ProjectsState =
       projects: Project[];
     };
 
+export interface ProjectTechs {
+  frontEnd: string[];
+  backEnd: string[];
+  otherTechs: string[];
+}
+
 @Service()
 export class ProjectsDataService {
   private readonly projectsService = inject(ProjectsService);
@@ -65,15 +71,38 @@ export class ProjectsDataService {
   ]);
 
   readonly industries = computed(() => [
-  ...new Map(
-    this.projects().map((project) => [
-      project.industry.name,
-      { name: project.industry.name },
-    ]),
-  ).values(),
-]);
+    ...new Map(
+      this.projects().map((project) => [project.industry.name, { name: project.industry.name }]),
+    ).values(),
+  ]);
 
   getProjectByUuid(uuid: string): Project | undefined {
     return this.projects().find((project) => project.uuid === uuid);
+  }
+
+  getTechs(project: Project): ProjectTechs | undefined {
+    return {
+      frontEnd: project.details.front_end_techs
+        .split(',')
+        .map((tech) => tech.trim())
+        .filter(Boolean),
+
+      backEnd: project.details.back_end_techs
+        .split(',')
+        .map((tech) => tech.trim())
+        .filter(Boolean),
+
+      otherTechs: project.details.other_techs
+        .split(',')
+        .map((tech) => tech.trim())
+        .filter(Boolean),
+    };
+  }
+
+  getOtherProjects(currentProjectUuid: string): Project[] {
+    return this.projects()
+      .filter((project) => project.uuid !== currentProjectUuid)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2);
   }
 }

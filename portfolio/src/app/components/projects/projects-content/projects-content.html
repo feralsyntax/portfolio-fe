@@ -22,7 +22,11 @@
                 {{ project.first_created | date: 'yyyy' }} // {{ project.industry.name }}
               </span>
 
-              <h3>{{ project.name }}</h3>
+              <h3>
+                <span>
+                  <a routerLink="/p/{{ project.uuid }}">{{ project.name }}</a>
+                </span>
+              </h3>
 
               <p>
                 {{ project.short_description }}

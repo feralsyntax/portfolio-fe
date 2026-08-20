@@ -1,10 +1,11 @@
 import { Component, computed, input } from '@angular/core';
 import { Project } from '../../../api/openapi';
 import { DatePipe } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-projects-content',
-  imports: [DatePipe],
+  imports: [DatePipe, RouterLink],
   templateUrl: './projects-content.html',
   styleUrl: './projects-content.scss',
 })

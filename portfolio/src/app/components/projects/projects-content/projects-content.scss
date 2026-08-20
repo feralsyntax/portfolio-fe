@@ -118,6 +118,14 @@
       font-size: 20px;
       line-height: 1.4;
       font-weight: 500;
+
+      span a {
+        text-decoration: none;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
     }
 
     p {
