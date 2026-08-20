@@ -72,25 +72,58 @@
   <!-- Right: Contact Form Card -->
   <div class="contact-form-container">
     <div class="contact-form-card">
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="form-field">
             <label>Name</label>
 
-            <input type="text" placeholder="John Doe" required />
+            <input type="text" placeholder="John Doe" formControlName="name" required />
+            @if (
+              contactForm.get('name')?.invalid &&
+              (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)
+            ) {
+              @if (contactForm.get('name')?.hasError('required')) {
+                <small>Your name is required</small>
+              }
+            }
           </div>
 
           <div class="form-field">
             <label>Email</label>
 
-            <input type="email" placeholder="john@example.com" required />
+            <input type="email" placeholder="john@example.com" formControlName="email" required />
+
+            @if (
+              contactForm.get('email')?.invalid &&
+              (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)
+            ) {
+              @if (contactForm.get('email')?.hasError('required')) {
+                <small>Your email is required</small>
+              }
+            }
+            @if (contactForm.get('email')?.hasError('email')) {
+              <small>Please enter a valid email address</small>
+            }
           </div>
         </div>
 
         <div class="form-field form-message">
           <label>Message</label>
 
-          <textarea placeholder="Tell me about your project..." required></textarea>
+          <textarea
+            placeholder="Tell me about your project..."
+            required
+            formControlName="message"
+          ></textarea>
+
+          @if (
+            contactForm.get('message')?.invalid &&
+            (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)
+          ) {
+            @if (contactForm.get('message')?.hasError('required')) {
+              <small>Your message is required</small>
+            }
+          }
         </div>
 
         <button type="button">Send Message</button>
