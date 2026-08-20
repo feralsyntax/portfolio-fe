@@ -1,7 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { ContactService } from '../../../api/openapi';
 import { ServerErrorsService } from '../../../services/errors/server-errors-service';
 import Notiflix from 'notiflix';
@@ -9,7 +7,7 @@ import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
-  imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.scss',
 })
