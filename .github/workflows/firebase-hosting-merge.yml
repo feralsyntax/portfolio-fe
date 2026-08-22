@@ -20,6 +20,10 @@ jobs:
       - name: Install Dependencies
         working-directory: portfolio
         run: npm ci
+
+      - name: Generate code with Openapi
+        working-directory: portfolio
+        run: npm run openapi
       
       - name: Build
         working-directory: portfolio
