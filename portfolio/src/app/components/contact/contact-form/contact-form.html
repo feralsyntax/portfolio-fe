@@ -144,27 +144,14 @@
           }
 
           @if (contactForm.get('message')?.errors?.['server']) {
-              <small>
-                {{ contactForm.get('message')?.errors?.['server'] }}
-              </small>
-            }
+            <small>
+              {{ contactForm.get('message')?.errors?.['server'] }}
+            </small>
+          }
         </div>
 
         <button type="button">Send Message</button>
       </form>
-
-      <!-- Success State overlay -->
-      <div class="success-state" id="successState">
-        <div class="success-icon">
-          <span class="material-symbols-outlined"> check_circle </span>
-        </div>
-
-        <h3>Message sent</h3>
-
-        <p>I'll get back to you within 24 hours.</p>
-
-        <button type="button">Send another message</button>
-      </div>
     </div>
   </div>
 </section>
