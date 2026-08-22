@@ -7,7 +7,7 @@ import { Contact } from './components/contact/contact';
 import { FourOhFour } from './components/four-oh-four/four-oh-four';
 
 export const routes: Routes = [
-  { path: '', component: LandingPage, title: 'Welcome' },
+  { path: '', component: LandingPage, title: 'benie.dev | Welcome' },
   { path: 'projects', component: Projects, title: 'All Projects' },
   { path: 'p/:uuid', component: ProjectDetails, title: 'Project Details' },
   { path: 'about', component: About, title: 'My Journey' },
