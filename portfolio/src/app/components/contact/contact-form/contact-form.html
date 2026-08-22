@@ -73,6 +73,12 @@
   <div class="contact-form-container">
     <div class="contact-form-card">
       <form class="contact-form" id="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        @if (serverError()) {
+          <div class="error">
+            {{ serverError() }}
+          </div>
+        }
+
         <div class="form-row">
           <div class="form-field">
             <label>Name</label>
@@ -85,6 +91,12 @@
               @if (contactForm.get('name')?.hasError('required')) {
                 <small>Your name is required</small>
               }
+            }
+
+            @if (contactForm.get('name')?.errors?.['server']) {
+              <small>
+                {{ contactForm.get('name')?.errors?.['server'] }}
+              </small>
             }
           </div>
 
@@ -103,6 +115,12 @@
             }
             @if (contactForm.get('email')?.hasError('email')) {
               <small>Please enter a valid email address</small>
+            }
+
+            @if (contactForm.get('email')?.errors?.['server']) {
+              <small>
+                {{ contactForm.get('email')?.errors?.['server'] }}
+              </small>
             }
           </div>
         </div>
@@ -124,6 +142,12 @@
               <small>Your message is required</small>
             }
           }
+
+          @if (contactForm.get('message')?.errors?.['server']) {
+              <small>
+                {{ contactForm.get('message')?.errors?.['server'] }}
+              </small>
+            }
         </div>
 
         <button type="button">Send Message</button>
