@@ -72,42 +72,86 @@
   <!-- Right: Contact Form Card -->
   <div class="contact-form-container">
     <div class="contact-form-card">
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        @if (serverError()) {
+          <div class="error">
+            {{ serverError() }}
+          </div>
+        }
+
         <div class="form-row">
           <div class="form-field">
             <label>Name</label>
 
-            <input type="text" placeholder="John Doe" required />
+            <input type="text" placeholder="John Doe" formControlName="name" required />
+            @if (
+              contactForm.get('name')?.invalid &&
+              (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)
+            ) {
+              @if (contactForm.get('name')?.hasError('required')) {
+                <small>Your name is required</small>
+              }
+            }
+
+            @if (contactForm.get('name')?.errors?.['server']) {
+              <small>
+                {{ contactForm.get('name')?.errors?.['server'] }}
+              </small>
+            }
           </div>
 
           <div class="form-field">
             <label>Email</label>
 
-            <input type="email" placeholder="john@example.com" required />
+            <input type="email" placeholder="john@example.com" formControlName="email" required />
+
+            @if (
+              contactForm.get('email')?.invalid &&
+              (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)
+            ) {
+              @if (contactForm.get('email')?.hasError('required')) {
+                <small>Your email is required</small>
+              }
+            }
+            @if (contactForm.get('email')?.hasError('email')) {
+              <small>Please enter a valid email address</small>
+            }
+
+            @if (contactForm.get('email')?.errors?.['server']) {
+              <small>
+                {{ contactForm.get('email')?.errors?.['server'] }}
+              </small>
+            }
           </div>
         </div>
 
         <div class="form-field form-message">
           <label>Message</label>
 
-          <textarea placeholder="Tell me about your project..." required></textarea>
+          <textarea
+            placeholder="Tell me about your project..."
+            required
+            formControlName="message"
+          ></textarea>
+
+          @if (
+            contactForm.get('message')?.invalid &&
+            (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)
+          ) {
+            @if (contactForm.get('message')?.hasError('required')) {
+              <small>Your message is required</small>
+            }
+          }
+
+          @if (contactForm.get('message')?.errors?.['server']) {
+            <small>
+              {{ contactForm.get('message')?.errors?.['server'] }}
+            </small>
+          }
         </div>
 
-        <button type="button">Send Message</button>
+        <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
       </form>
-
-      <!-- Success State overlay -->
-      <div class="success-state" id="successState">
-        <div class="success-icon">
-          <span class="material-symbols-outlined"> check_circle </span>
-        </div>
-
-        <h3>Message sent</h3>
-
-        <p>I'll get back to you within 24 hours.</p>
-
-        <button type="button">Send another message</button>
-      </div>
     </div>
   </div>
 </section>
