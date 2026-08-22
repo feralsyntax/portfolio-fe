@@ -5,8 +5,8 @@ const DEFAULT_SERVER_ERROR = 'Something went wrong. Please try again.';
 const SERVER_ERROR_KEY = 'server';
 
 @Service()
-export class ServerErrors {
-  readonly serverError = signal<string | null>(null);
+export class ServerErrorsService {
+    readonly serverError = signal<string | null>(null);
 
   clear(): void {
     this.serverError.set(null);
