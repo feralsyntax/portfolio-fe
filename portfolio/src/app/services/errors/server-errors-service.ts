@@ -6,7 +6,8 @@ const SERVER_ERROR_KEY = 'server';
 
 @Service()
 export class ServerErrorsService {
-    readonly serverError = signal<string | null>(null);
+  readonly serverError = signal<string | null>(null);
+  readonly errorMessage = signal<string | null>(null);
 
   clear(): void {
     this.serverError.set(null);

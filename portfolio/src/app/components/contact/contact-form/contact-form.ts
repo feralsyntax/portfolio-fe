@@ -5,6 +5,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ContactService } from '../../../api/openapi';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
+import { ServerErrors } from '../../../services/errors/server-errors';
+import { ServerErrorsService } from '../../../services/errors/server-errors-service';
 
 @Component({
   selector: 'app-contact-form',
@@ -22,10 +24,11 @@ export class ContactForm {
   readonly contactLinkedInUrl = 'https://ke.linkedin.com/in/benson-langat-software-developer';
   readonly contactPhoneNumber = '+254708696335';
 
-  serverError = signal<string | null>(null);
   private readonly fb = inject(FormBuilder);
   private readonly contactService = inject(ContactService);
-  private readonly destroyRef = inject(DestroyRef);
+  private readonly serverErrorsService = inject(ServerErrorsService);
+
+  protected readonly serverError = this.serverErrorsService.errorMessage;
 
   contactForm = this.fb.nonNullable.group({
     name: ['', Validators.required],
@@ -34,7 +37,7 @@ export class ContactForm {
   });
 
   onSubmit(): void {
-    this.serverError.set(null);
+    this.serverErrorsService.serverError.set(null);
 
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
@@ -43,6 +46,11 @@ export class ContactForm {
 
     const formValue = this.contactForm.getRawValue();
 
-    this.contactService.addContact(formValue).subscribe({ next: () => {}, error: (error) => {} });
+    this.contactService.addContact(formValue).subscribe({
+      next: () => {},
+      error: (error) => {
+        this.serverErrorsService.handleServerError(this.contactForm, error);
+      },
+    });
   }
 }
