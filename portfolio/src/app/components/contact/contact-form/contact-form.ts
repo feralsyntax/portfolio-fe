@@ -1,11 +1,8 @@
-import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ContactService } from '../../../api/openapi';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { finalize } from 'rxjs';
-import { ServerErrors } from '../../../services/errors/server-errors';
 import { ServerErrorsService } from '../../../services/errors/server-errors-service';
 
 @Component({
