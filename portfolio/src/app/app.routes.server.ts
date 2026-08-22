@@ -6,6 +6,14 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender,
   },
   {
+    path: '',
+    renderMode: RenderMode.Client,
+  },
+  {
+    path: 'projects',
+    renderMode: RenderMode.Client,
+  },
+  {
     path: 'p/:uuid',
     renderMode: RenderMode.Client,
   },
