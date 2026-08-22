@@ -1,0 +1,10 @@
+.four-oh-four {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0 0 5rem;
+  background: linear-gradient(135deg, #38342d 0%, #0c0912 100%) !important;
+  min-height: 88vh;
+}
