@@ -1,7 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ContactService } from '../../../api/openapi';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
@@ -19,15 +22,20 @@ export class ContactForm {
   readonly contactLinkedInUrl = 'https://ke.linkedin.com/in/benson-langat-software-developer';
   readonly contactPhoneNumber = '+254708696335';
 
+  serverError = signal<string | null>(null);
   private readonly fb = inject(FormBuilder);
+  private readonly contactService = inject(ContactService);
+  private readonly destroyRef = inject(DestroyRef);
 
-  contactForm = this.fb.group({
+  contactForm = this.fb.nonNullable.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     message: ['', Validators.required],
   });
 
-  onSubmit() {
+  onSubmit(): void {
+    this.serverError.set(null);
+
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
@@ -35,10 +43,6 @@ export class ContactForm {
 
     const formValue = this.contactForm.getRawValue();
 
-    const payload = {
-      name: formValue.name!,
-      email: formValue.email!,
-      message: formValue.message!,
-    };
+    this.contactService.addContact(formValue).subscribe({ next: () => {}, error: (error) => {} });
   }
 }
