@@ -4,6 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ContactService } from '../../../api/openapi';
 import { ServerErrorsService } from '../../../services/errors/server-errors-service';
+import Notiflix from 'notiflix';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
@@ -27,14 +29,14 @@ export class ContactForm {
 
   protected readonly serverError = this.serverErrorsService.errorMessage;
 
-  contactForm = this.fb.nonNullable.group({
+  readonly contactForm = this.fb.nonNullable.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     message: ['', Validators.required],
   });
 
   onSubmit(): void {
-    this.serverErrorsService.serverError.set(null);
+    this.serverErrorsService.clear();
 
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
@@ -43,11 +45,20 @@ export class ContactForm {
 
     const formValue = this.contactForm.getRawValue();
 
-    this.contactService.addContact(formValue).subscribe({
-      next: () => {},
-      error: (error) => {
-        this.serverErrorsService.handleServerError(this.contactForm, error);
-      },
-    });
+    Notiflix.Loading.dots('Sending message...');
+
+    this.contactService
+      .addContact(formValue)
+      .pipe(finalize(() => Notiflix.Loading.remove()))
+      .subscribe({
+        next: () => {
+          Notiflix.Notify.success('Message sent!');
+          this.contactForm.reset();
+        },
+        error: (error) => {
+          Notiflix.Notify.failure('Error sending message.');
+          this.serverErrorsService.handleServerError(this.contactForm, error);
+        },
+      });
   }
 }
