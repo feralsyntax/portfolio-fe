@@ -14,7 +14,7 @@ import { finalize } from 'rxjs';
   styleUrl: './contact-form.scss',
 })
 export class ContactForm {
-  readonly contactEmail = 'bensonlangat.bl@gmail.com';
+  readonly contactEmail = 'hello@benie.dev';
   readonly contactLocation = 'Nakuru, Kenya';
   readonly contactTimezone = 'EAT / UTC+3';
   readonly contactResponseTime = 'Usually within 24 hours.';
