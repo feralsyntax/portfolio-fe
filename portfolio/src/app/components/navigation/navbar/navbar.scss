@@ -121,4 +121,31 @@
       display: none;
     }
   }
+
+  &__mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding: 1rem 16px 1.5rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(12, 9, 18, 0.95);
+
+    a {
+      color: $color-text-muted;
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 1.6;
+
+      &:hover,
+      &.active {
+        color: $color-primary-container;
+      }
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
 }
