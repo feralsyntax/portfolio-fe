@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { ProjectsDataService } from '../../../services/projects-data/projects-data-service';
 import { Router } from '@angular/router';
+import { TruncatePipe } from '../../../pipes/truncate/truncate-pipe';
 
 @Component({
   selector: 'app-landing-featured',
-  imports: [],
+  imports: [TruncatePipe],
   templateUrl: './landing-featured.html',
   styleUrl: './landing-featured.scss',
 })

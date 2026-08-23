@@ -24,7 +24,7 @@
         </div>
 
         <p>
-          {{ project.long_description }}
+          {{ project.long_description | truncate: 250}}
         </p>
 
         <div class="featured-work__tags">
