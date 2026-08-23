@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ProjectsDataService } from '../../../services/projects-data/projects-data-service';
 import { Router } from '@angular/router';
+import { TruncatePipe } from '../../../pipes/truncate/truncate-pipe';
 
 @Component({
   selector: 'app-landing-featured',
-  imports: [],
+  imports: [TruncatePipe],
   templateUrl: './landing-featured.html',
   styleUrl: './landing-featured.scss',
 })
@@ -18,8 +19,16 @@ export class LandingFeatured {
         a seamless conversational experience.`;
 
   protected readonly projectsData = inject(ProjectsDataService);
+  protected readonly router = inject(Router);
+  protected readonly projectUuid = computed(() => this.projectsData.featuredProject()?.uuid);
 
   openDemo(url: string) {
     window.open(url, 'blank', 'noopener,noreferrer');
+  }
+
+  goToFeatured() {
+    if (this.projectUuid()) {
+      this.router.navigate([`/p/${this.projectUuid()}`]);
+    }
   }
 }
