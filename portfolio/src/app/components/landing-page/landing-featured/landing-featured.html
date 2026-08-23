@@ -24,7 +24,7 @@
         </div>
 
         <p>
-          {{ project.long_description }}
+          {{ project.short_description }}
         </p>
 
         <div class="featured-work__tags">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="featured-work__actions">
-          <button class="featured-work__case-study">
+          <button class="featured-work__case-study" (click)="goToFeatured()">
             Case Study
 
             <span class="material-symbols-outlined"> arrow_right_alt </span>
