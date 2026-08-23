@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -10,7 +10,18 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 export class Navbar {
   private readonly router = inject(Router);
 
-  goToContact() {
+  protected readonly isMenuOpen = signal(false);
+
+  protected toggleMenu(): void {
+    this.isMenuOpen.update((open) => !open);
+  }
+
+  protected closeMenu(): void {
+    this.isMenuOpen.set(false);
+  }
+
+  protected goToContact(): void {
+    this.closeMenu();
     this.router.navigate(['/contact']);
   }
 }
