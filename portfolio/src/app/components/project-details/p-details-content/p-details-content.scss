@@ -92,7 +92,8 @@
     }
   }
 
-  &__live-site {
+  &__live-site,
+  &__github {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -104,10 +105,6 @@
 
     border-radius: 9999px;
 
-    background: linear-gradient(to right, $gradient-ultra-end, $color-primary-container);
-
-    color: $color-text;
-
     font-family: 'Space Grotesk', sans-serif;
     font-size: 14px;
     line-height: 1;
@@ -117,6 +114,8 @@
     text-decoration: none;
 
     transition: box-shadow 300ms;
+
+    color: $color-text;
 
     &:hover {
       box-shadow: 0 0 20px rgba(108, 74, 191, 0.4);
@@ -129,6 +128,14 @@
     @media (min-width: 640px) {
       width: auto;
     }
+  }
+
+  &__live-site {
+    background: linear-gradient(to right, $gradient-ultra-end, $color-primary-container);
+  }
+
+  &__github {
+    background: linear-gradient(to right, $gradient-acacia-end, $color-tertiary-container);
   }
 
   // Right Narrative
