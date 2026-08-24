@@ -48,11 +48,22 @@
         <div>
           <a
             class="project-details__live-site"
-            href="{{ projectDetails()?.details?.live_site }}"
+            href="{{ projectDetails()?.live_site }}"
             target="_blank"
             rel="noopener noreferrer"
           >
             Visit Live Site
+
+            <span class="material-symbols-outlined"> open_in_new </span>
+          </a>
+
+          <a
+            class="project-details__github"
+            href="{{ projectDetails()?.github_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on GitHub
 
             <span class="material-symbols-outlined"> open_in_new </span>
           </a>
@@ -100,37 +111,41 @@
         </div>
       </section>
 
-      <section>
-        <div class="project-details__section-header">
-          <span>04</span>
-          <h2>Impacts</h2>
-        </div>
+      @if (projectDetails()?.details?.impacts) {
+        <section>
+          <div class="project-details__section-header">
+            <span>04</span>
+            <h2>Impacts</h2>
+          </div>
 
-        <div class="project-details__features">
-          @for (impact of projectDetails()?.details?.impacts; track impact.title) {
-            <div class="project-details__feature">
-              <span>{{ impact.title }}</span>
-              <span>{{ impact.description }}</span>
-            </div>
-          }
-        </div>
-      </section>
+          <div class="project-details__features">
+            @for (impact of projectDetails()?.details?.impacts; track impact.title) {
+              <div class="project-details__feature">
+                <span>{{ impact.title }}</span>
+                <span>{{ impact.description }}</span>
+              </div>
+            }
+          </div>
+        </section>
+      }
 
-      <section>
-        <div class="project-details__section-header">
-          <span>04</span>
-          <h2>Challenges</h2>
-        </div>
+      @if (projectDetails()?.details?.challenges) {
+        <section>
+          <div class="project-details__section-header">
+            <span>04</span>
+            <h2>Challenges</h2>
+          </div>
 
-        <div class="project-details__features">
-          @for (challenge of projectDetails()?.details?.challenges; track challenge.title) {
-            <div class="project-details__feature">
-              <span>{{ challenge.title }}</span>
-              <span>{{ challenge.description }}</span>
-            </div>
-          }
-        </div>
-      </section>
+          <div class="project-details__features">
+            @for (challenge of projectDetails()?.details?.challenges; track challenge.title) {
+              <div class="project-details__feature">
+                <span>{{ challenge.title }}</span>
+                <span>{{ challenge.description }}</span>
+              </div>
+            }
+          </div>
+        </section>
+      }
     </div>
   </section>
 }

@@ -3,7 +3,7 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.development';
 import { provideHttpClient } from '@angular/common/http';
 import { provideDefaultClient } from './api/openapi';
 
