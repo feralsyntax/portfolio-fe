@@ -1,9 +1,6 @@
 @use '@angular/material' as mat;
 
 @use './assets/styles/base';
-@use './assets/styles/colors';
-@use './assets/styles/d-flex';
-@use './assets/styles/flex-align';
 
 html {
   @include mat.theme(
