@@ -115,7 +115,6 @@
 
     transition: box-shadow 300ms;
 
-    color: $color-text;
 
     &:hover {
       box-shadow: 0 0 20px rgba(108, 74, 191, 0.4);
@@ -132,10 +131,13 @@
 
   &__live-site {
     background: linear-gradient(to right, $gradient-ultra-end, $color-primary-container);
+    color: $color-text;
   }
 
   &__github {
+    margin-top: 1rem !important;
     background: linear-gradient(to right, $gradient-acacia-end, $color-tertiary-container);
+    color: $color-surface;
   }
 
   // Right Narrative
