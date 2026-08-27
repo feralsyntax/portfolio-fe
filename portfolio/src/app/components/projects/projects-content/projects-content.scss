@@ -71,19 +71,13 @@
       height: 6px;
     }
 
-    &--health {
-      .project-card__accent {
-        background: linear-gradient(to right, #c87f52, $color-secondary);
-      }
-    }
-
-    &--health {
+    &--featured {
       .project-card__accent {
         background: linear-gradient(to right, $color-primary-container, $color-primary);
       }
     }
 
-    &--fintech {
+    &--not-featured {
       .project-card__accent {
         background: linear-gradient(to right, $color-tertiary-container, $color-tertiary);
       }

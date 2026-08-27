@@ -10,9 +10,8 @@
       @for (project of visibleProjects(); track project.uuid) {
         <article
           class="project-card"
-          [class.project-card--fintech]="project.industry.name === 'FinTech'"
-          [class.project-card--health]="project.industry.name === 'Health'"
-          [class.project-card--health]="project.industry.name === 'Health'"
+          [class.project-card--featured]="project.is_featured?.toString() === 'true'"
+          [class.project-card--not-featured]="project.is_featured?.toString() === 'false'"
         >
           <div class="project-card__accent"></div>
 
