@@ -12,9 +12,11 @@ interface Skill {
 })
 export class ContactSkills {
   readonly skills: Skill[] = [
-    { title: 'Full-stack web apps' },
+    { title: 'Full-stack web development' },
     { title: 'AI integration' },
-    { title: 'Admin portals' },
-    { title: 'API design' },
+    { title: 'API development' },
+    { title: 'Implementing designs' },
+    { title: 'Content updates' },
+    { title: 'Maintenance' },
   ];
 }
