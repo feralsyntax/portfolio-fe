@@ -1,19 +1,21 @@
-<section class="more-projects">
-  <h2 class="more-projects__title">More Projects</h2>
+@if (moreProjects()?.length) {
+  <section class="more-projects">
+    <h2 class="more-projects__title">More Projects</h2>
 
-  <div class="more-projects__grid">
-    @for (project of moreProjects(); track project.name) {
-      <a class="project-card project-card--nia" href="#">
-        <div class="project-card__accent"></div>
+    <div class="more-projects__grid">
+      @for (project of moreProjects(); track project.uuid) {
+        <a class="project-card project-card--nia" [routerLink]="['/p', project.uuid]">
+          <div class="project-card__accent"></div>
 
-        <div class="project-card__content">
-          <h3 class="project-card__title">{{ project.name }}</h3>
+          <div class="project-card__content">
+            <h3 class="project-card__title">{{ project.name }}</h3>
 
-          <p class="project-card__description">
-            {{ project.short_description }}
-          </p>
-        </div>
-      </a>
-    }
-  </div>
-</section>
+            <p class="project-card__description">
+              {{ project.short_description }}
+            </p>
+          </div>
+        </a>
+      }
+    </div>
+  </section>
+}
