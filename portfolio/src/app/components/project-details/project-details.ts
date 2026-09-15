@@ -10,6 +10,8 @@ import {
   ProjectsDataService,
   ProjectTechs,
 } from '../../services/projects-data/projects-data-service';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs/internal/operators/map';
 
 @Component({
   selector: 'app-project-details',
@@ -28,9 +30,16 @@ export class ProjectDetails {
   private readonly route = inject(ActivatedRoute);
   protected readonly projectsData = inject(ProjectsDataService);
 
-  protected readonly uuid = this.route.snapshot.paramMap.get('uuid')!;
+  protected readonly uuid = toSignal(
+    this.route.paramMap.pipe(map((params) => params.get('uuid'))),
+    { initialValue: null },
+  );
 
-  protected readonly project = computed(() => this.projectsData.getProjectByUuid(this.uuid));
+  protected readonly project = computed(() => {
+    const uuid = this.uuid();
+
+    return uuid ? this.projectsData.getProjectByUuid(uuid) : undefined;
+  });
 
   protected readonly technologies = computed(() => {
     const project = this.project();
@@ -38,5 +47,9 @@ export class ProjectDetails {
     return project ? this.projectsData.getTechs(project) : undefined;
   });
 
-  protected readonly otherProjects = computed(() => this.projectsData.getOtherProjects(this.uuid));
+  protected readonly otherProjects = computed(() => {
+    const uuid = this.uuid();
+
+    return uuid ? this.projectsData.getOtherProjects(uuid) : undefined;
+  });
 }

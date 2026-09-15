@@ -9,5 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './p-details-more.scss',
 })
 export class PDetailsMore {
-  readonly moreProjects = input<Project[]>([]);
+  readonly moreProjects = input<Project[] | undefined>(undefined);
 }
