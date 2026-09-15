@@ -113,7 +113,7 @@
         </div>
       </section>
 
-      @if (projectDetails()?.details?.impacts) {
+      @if (projectDetails()?.details?.impacts?.length) {
         <section>
           <div class="project-details__section-header">
             <span>04</span>
@@ -131,23 +131,21 @@
         </section>
       }
 
-      @if (projectDetails()?.details?.challenges) {
-        <section>
-          <div class="project-details__section-header">
-            <span>04</span>
-            <h2>Challenges</h2>
-          </div>
+      <section>
+        <div class="project-details__section-header">
+          <span>04</span>
+          <h2>Challenges</h2>
+        </div>
 
-          <div class="project-details__features">
-            @for (challenge of projectDetails()?.details?.challenges; track challenge.title) {
-              <div class="project-details__feature">
-                <span>{{ challenge.title }}</span>
-                <span>{{ challenge.description }}</span>
-              </div>
-            }
-          </div>
-        </section>
-      }
+        <div class="project-details__features">
+          @for (challenge of projectDetails()?.details?.challenges; track challenge.title) {
+            <div class="project-details__feature">
+              <span>{{ challenge.title }}</span>
+              <span>{{ challenge.description }}</span>
+            </div>
+          }
+        </div>
+      </section>
     </div>
   </section>
 }
